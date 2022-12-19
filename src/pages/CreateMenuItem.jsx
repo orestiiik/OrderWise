@@ -113,23 +113,19 @@ const CreateMenuItem = () => {
                         </Typography>
                         <form onSubmit={handleSubmit} method="POST">
                             <Grid container spacing={3} pb={2}>
-                                <Grid item xs={12}>
-                                    <Typography variant={'subtitle1'}>
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={8}>
+                                <Grid item xs={12} md={8}>
                                     <TextInput name={'Name'} id={'name'}/>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={6} md={4}>
                                     <TextInput name={'Weight/Volume'} id={'weight'}/>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={6} md={4}>
                                     <TextInput name={'Price'} id={'price'}/>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={6} md={4}>
                                     <TextInput name={'Allergens'} id={'allergens'}/>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={6} md={4}>
                                     <TextInput name={'Category'} id={'category'}/>
                                     <Typography variant={'caption'} pt={.5}>
                                         ('meal', 'drink', 'sides', 'alcohol', 'kids')
