@@ -121,7 +121,8 @@ const TablePage = () => {
                     }
                 })
             ,
-            table: table.data.number
+            table: table.data.number,
+            created: Date.now()
         }).then(() => {
             setTimeout(() => {
                 setLoading((current) => !current);

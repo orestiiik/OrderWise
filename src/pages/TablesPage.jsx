@@ -94,7 +94,7 @@ const TablesPage = () => {
                 </Box>
             </Link>
             <Grid container pb={3}>
-                {tables.map(table =>
+                {tables.sort((a, b) => a.data.number - b.data.number).map(table =>
                     <Grid item xs={6} md={3} p={2}>
                         <Grid key={table.id} item boxShadow={5} height={'100%'} xs={12} borderRadius={1} p={3}>
                             <Grid item xs={12} display={'flex'} justifyContent={'space-between'}>

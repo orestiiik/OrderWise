@@ -83,7 +83,7 @@ const AdminPage = () => {
                 YOUR ORDERS
             </Typography>
             <Grid container pb={3}>
-                {orders.reverse().map(order =>
+                {orders.sort((a, b) => a.data.created - b.data.created).map(order =>
                     <Grid item xs={12} md={4} p={2}>
                         <Grid key={order.id} item boxShadow={5} height={'100%'} xs={12} borderRadius={1} p={3}>
                             <Grid item xs={12} display={'flex'} justifyContent={'space-between'}>
