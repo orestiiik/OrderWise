@@ -10,7 +10,6 @@ import CreateTable from "./pages/CreateTable";
 
 function App() {
     return (
-
             <Routes>
                 <Route path="/" element={<HomePage/>}/>
                 <Route path="/admin" exact element={<LoginPage/>}/>
