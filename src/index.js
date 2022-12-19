@@ -8,9 +8,9 @@ import MainLayout from "./components/MainLayout";
 import ThemeContext from "./context/ThemeContext";
 import {LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
-import {createMuiTheme, ThemeProvider} from "@mui/material";
+import {createTheme, ThemeProvider} from "@mui/material";
 
-const theme = createMuiTheme({
+const theme = createTheme({
     typography: {
         fontFamily: [
             "'Inter', sans-serif",
@@ -21,9 +21,9 @@ const theme = createMuiTheme({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <ThemeProvider theme={theme}>
-        <React.StrictMode>
-            <BrowserRouter>
+    <BrowserRouter>
+        <ThemeProvider theme={theme}>
+            <React.StrictMode>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <ThemeContext.Provider value={{
                         primaryColor: '#C4924E',
@@ -38,9 +38,8 @@ root.render(
                         </MainLayout>
                     </ThemeContext.Provider>
                 </LocalizationProvider>
-            </BrowserRouter>
-        </React.StrictMode>
-    </ThemeProvider>
+            </React.StrictMode>
+        </ThemeProvider>
+    </BrowserRouter>
 );
-
 reportWebVitals();

@@ -1,8 +1,7 @@
 {
   "name": "order-wise",
   "version": "0.1.0",
-  "homepage": ".",
-  "private": true,
+  "homepage": "",
   "engines": {
     "node": "16.16.0"
   },

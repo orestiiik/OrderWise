@@ -10,16 +10,17 @@ import CreateTable from "./pages/CreateTable";
 
 function App() {
     return (
-        <Routes>
-            <Route path="/" element={<HomePage/>}/>
-            <Route path="/admin" exact element={<LoginPage/>}/>
-            <Route path="/menuItems" exact element={<MenuItemsPage/>}/>
-            <Route path="/tables" exact element={<TablesPage/>}/>
-            <Route path="/newMenuItem" exact element={<CreateMenuItem/>}/>
-            <Route path="/newTable" exact element={<CreateTable/>}/>
-            <Route path="/table/:id" element={<TablePage/>}/>
-            <Route path="*" element={<Navigate to="/"/>}/>
-        </Routes>
+
+            <Routes>
+                <Route path="/" element={<HomePage/>}/>
+                <Route path="/admin" exact element={<LoginPage/>}/>
+                <Route path="/menuItems" exact element={<MenuItemsPage/>}/>
+                <Route path="/tables" exact element={<TablesPage/>}/>
+                <Route path="/newMenuItem" exact element={<CreateMenuItem/>}/>
+                <Route path="/newTable" exact element={<CreateTable/>}/>
+                <Route path="/table/:id" element={<TablePage/>}/>
+                <Route path="*" element={<Navigate to="/"/>}/>
+            </Routes>
     );
 }
 
