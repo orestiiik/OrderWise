@@ -25,12 +25,11 @@ const LoginPage = () => {
                     <Grid container>
                         <Box m={3} boxShadow={3} sx={{
                             p: 3,
-                            borderRadius: 8,
+                            borderRadius: 1,
                             background: 'rgba(255, 255, 255, 0.60)',
                             backdropFilter: 'blur(8.9px)',
                         }}>
-                            <Typography pt={2} variant={'h4'} color={theme.secondaryColor}
-                                        fontFamily={theme.secondaryFont}>
+                            <Typography pt={2} variant={'h4'} color={theme.secondaryColor}>
                                 Login
                             </Typography>
                             <form onSubmit={handleSubmit} method="POST">
@@ -63,9 +62,9 @@ const LoginPage = () => {
                                             fontWeight: 500,
                                             fontSize: 16,
                                             px: 3,
-                                            borderRadius: 4,
+                                            borderRadius: 1,
                                             py: 1,
-                                            color: theme.primaryColor,
+                                            color: 'white',
                                             textTransform: 'uppercase'
                                         }}
                                         >

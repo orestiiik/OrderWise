@@ -2,7 +2,6 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import './App.css';
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import ContactPage from "./pages/ContactPage";
 import TablePage from "./pages/TablePage";
 import CreateMenuItem from "./pages/CreateMenuItem";
 import TablesPage from "./pages/TablesPage";
@@ -13,7 +12,6 @@ function App() {
     return (
         <Routes>
             <Route path="/" element={<HomePage/>}/>
-            <Route path="/contact" exact element={<ContactPage/>}/>
             <Route path="/admin" exact element={<LoginPage/>}/>
             <Route path="/menuItems" exact element={<MenuItemsPage/>}/>
             <Route path="/tables" exact element={<TablesPage/>}/>
