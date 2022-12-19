@@ -1,10 +1,10 @@
 {
   "name": "order-wise",
   "version": "0.1.0",
-  "homepage": "https://orestiiik.github.io/OrderWise/",
+  "homepage": ".",
   "private": true,
   "engines": {
-    "node": "16.18.1"
+    "node": "16.16.0"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",

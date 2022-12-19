@@ -31,21 +31,6 @@ const MainLayout = ({children}) => {
                                         </Link>
                                     </a>
                                 </li>
-                                <li className="menu__item">
-                                    <a className="menu__link" href="">
-                                        <Link to={'/studios'} style={{textDecoration: 'none', color: 'inherit'}}>
-                                            Studios
-                                        </Link>
-                                    </a>
-                                </li>
-                                <li className="menu__item">
-                                    <a className="menu__link" href="">
-                                        <Link to={'/contact'} style={{textDecoration: 'none', color: 'inherit'}}>
-                                            Contact
-                                        </Link>
-                                    </a>
-
-                                </li>
                                 <Divider color={theme.primaryColor} sx={{my: 4}}/>
                                 <li className="menu__item">
                                     <a className="menu__link" href="">

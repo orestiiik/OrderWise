@@ -128,7 +128,7 @@ const TablesPage = () => {
                                         width: '100%',
                                         height: 'auto'
                                     }}
-                                    value={`https://orderwise.herokuapp.com/table/${table.id}`}
+                                    value={`https://orderwise-8213e.web.app/table/${table.id}`}
                                 />
                             </Grid>
                         </Grid>
