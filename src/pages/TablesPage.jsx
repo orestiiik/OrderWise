@@ -5,7 +5,7 @@ import {useAuthState} from "react-firebase-hooks/auth";
 import {auth, db} from "../utils/firebase-config";
 import {Link} from "react-router-dom";
 import {deleteDoc, doc} from "firebase/firestore";
-import {IconPencil, IconPlus, IconTrash} from "@tabler/icons";
+import {IconListDetails, IconPencil, IconPlus, IconTrash} from "@tabler/icons";
 import Tables from "../utils/Tables";
 import QRCode from "react-qr-code";
 
@@ -25,7 +25,7 @@ const TablesPage = () => {
                             width: 'fit-content'
                         }}
             >
-                DASHBOARD
+                Tables
             </Typography>
             {isAdmin &&
                 <Box display={'flex'} gap={3}>
@@ -40,6 +40,7 @@ const TablesPage = () => {
                         }}
                              px={2} py={0.7}
                         >
+                            <IconListDetails/>
                             <Typography fontSize={20} pl={1} color={theme.backgroundColor}
                                         fontFamily={"'Carrois Gothic', sans-serif"} fontWeight={900}>
                                 DASHBOARD
@@ -95,7 +96,7 @@ const TablesPage = () => {
             </Link>
             <Grid container pb={3}>
                 {tables.sort((a, b) => a.data.number - b.data.number).map(table =>
-                    <Grid item xs={6} md={3} p={2}>
+                    <Grid item xs={12} md={4} p={2}>
                         <Grid key={table.id} item boxShadow={5} height={'100%'} xs={12} borderRadius={1} p={3}>
                             <Grid item xs={12} display={'flex'} justifyContent={'space-between'}>
                                 <Box sx={{

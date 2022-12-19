@@ -6,7 +6,7 @@ import {auth, db} from "../utils/firebase-config";
 import {Link} from "react-router-dom";
 import {deleteDoc, doc} from "firebase/firestore";
 import menuItems from "../utils/MenuItems";
-import {IconPencil, IconPlus, IconTrash} from "@tabler/icons";
+import {IconListDetails, IconPencil, IconPlus, IconTrash} from "@tabler/icons";
 
 const MenuItemsPage = () => {
     const theme = useContext(ThemeContext)
@@ -24,7 +24,7 @@ const MenuItemsPage = () => {
                             width: 'fit-content'
                         }}
             >
-                DASHBOARD
+                Menu items
             </Typography>
             {isAdmin &&
                 <Box display={'flex'} gap={3}>
@@ -39,6 +39,7 @@ const MenuItemsPage = () => {
                         }}
                              px={2} py={0.7}
                         >
+                            <IconListDetails/>
                             <Typography fontSize={20} pl={1} color={theme.backgroundColor}
                                         fontFamily={"'Carrois Gothic', sans-serif"} fontWeight={900}>
                                 DASHBOARD

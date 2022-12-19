@@ -5,7 +5,7 @@ import {addDoc, collection} from "firebase/firestore";
 import {db} from "../utils/firebase-config";
 import TextInput from "../components/TextInput";
 import {Link} from "react-router-dom";
-import {IconPencil} from "@tabler/icons";
+import {IconListDetails, IconPencil} from "@tabler/icons";
 
 const CreateTable = () => {
     const theme = useContext(ThemeContext)
@@ -35,7 +35,7 @@ const CreateTable = () => {
 
     return (
         <Container maxWidth={'xl'}>
-            <Box display={'flex'} gap={3} pt={3}>
+            <Box display={'flex'} gap={3} pt={3} pb={3}>
                 <Link to={'/admin'} style={{width: 'fit-content', textDecoration: 'none', color: 'inherit'}}>
                     <Box boxShadow={10} sx={{
                         cursor: 'pointer',
@@ -47,12 +47,15 @@ const CreateTable = () => {
                     }}
                          px={2} py={0.7}
                     >
+                        <IconListDetails/>
                         <Typography fontSize={20} pl={1} color={theme.backgroundColor}
                                     fontFamily={"'Carrois Gothic', sans-serif"} fontWeight={900}>
                             DASHBOARD
                         </Typography>
                     </Box>
                 </Link>
+            </Box>
+            <Box display={'flex'} gap={3} pt={3}>
                 <Link to={'/menuItems'} style={{width: 'fit-content', textDecoration: 'none', color: 'inherit'}}>
                     <Box boxShadow={10} sx={{
                         cursor: 'pointer',
@@ -93,7 +96,7 @@ const CreateTable = () => {
             <Divider sx={{pt: 3}}/>
             <Grid container>
                 <>
-                    <Box m={3} boxShadow={3} sx={{
+                    <Box  m={{xs: 0, md: 3}} my={{xs: 3, md: 0}} boxShadow={3} sx={{
                         p: 3,
                         borderRadius: 1,
                         background: 'rgba(255, 255, 255, 0.60)',

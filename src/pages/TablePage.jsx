@@ -23,7 +23,7 @@ const MenuList = ({menuItem, order, setOrder, volume}) => {
         <Grid item xs={12} py={0.5} md={6} display={'flex'} alignItems={'center'} sx={{
             borderLeft: '2px solid black'
         }}>
-            <Grid item xs={6} md={4} display={'flex'} flexDirection={'column'}>
+            <Grid item xs={8} md={4} display={'flex'} flexDirection={'column'}>
                 <Typography fontSize={26} color={theme.primaryColor} fontWeight={600}
                             fontFamily={"'Carrois Gothic', sans-serif"}>
                     {menuItem.data.name}
@@ -42,7 +42,7 @@ const MenuList = ({menuItem, order, setOrder, volume}) => {
                     {menuItem.data.weight}{volume ? 'l' : 'g'}
                 </Grid>
             </Hidden>
-            <Grid item xs={2.5} px={1}>
+            <Grid item xs={4} md={2.5} px={1} display={'flex'} flexDirection={'column'} justifyContent={{xs: 'flex-end', md: 'flex-start'}}>
                 <TextField
                     label="Qty"
                     id="quantity"
@@ -80,16 +80,29 @@ const MenuList = ({menuItem, order, setOrder, volume}) => {
                         </Hidden>,
                     }}
                 />
+                <Hidden mdUp>
+                    <Box display={'flex'} justifyContent={'flex-end'} pt={1.5}>
+                        <Typography item xs={1.75} px={1} fontSize={{xs: 12, md: 15}}>
+                            {Math.round(menuItem.data.price * (order[menuItem.id]?.quantity ?? 0) * 100) / 100}kr
+                        </Typography>
+                        <Typography fontSize={18} color={theme.secondaryColor} fontWeight={900}
+                                    fontFamily={"'Inter', sans-serif"}>
+                            {menuItem.data.price}kr
+                        </Typography>
+                    </Box>
+                </Hidden>
             </Grid>
-            <Grid item xs={1.75} px={1} fontSize={{xs: 12, md: 15}}>
-                {menuItem.data.price}kr
-            </Grid>
-            <Grid item xs={1.75}>
-                <Typography fontSize={18} color={theme.secondaryColor} fontWeight={900}
-                            fontFamily={"'Inter', sans-serif"}>
+            <Hidden mdDown>
+                <Grid item xs={1.75} px={1} fontSize={{xs: 12, md: 15}}>
                     {Math.round(menuItem.data.price * (order[menuItem.id]?.quantity ?? 0) * 100) / 100}kr
-                </Typography>
-            </Grid>
+                </Grid>
+                <Grid item xs={1.75}>
+                    <Typography fontSize={18} color={theme.secondaryColor} fontWeight={900}
+                                fontFamily={"'Inter', sans-serif"}>
+                        {menuItem.data.price}kr
+                    </Typography>
+                </Grid>
+            </Hidden>
         </Grid>
     )
 }
@@ -203,7 +216,7 @@ const TablePage = () => {
                                     </Typography>
                                 </Grid>
                                 {menu.filter(item => item.data.category === 'meal').map((menuItem, index) =>
-                                    <MenuList menuItem={menuItem}  volume={false} order={order}
+                                    <MenuList menuItem={menuItem} volume={false} order={order}
                                               setOrder={setOrder}/>
                                 )
                                 }
@@ -217,7 +230,7 @@ const TablePage = () => {
                                     </Typography>
                                 </Grid>
                                 {menu.filter(item => item.data.category === 'kids').map((menuItem, index) =>
-                                    <MenuList menuItem={menuItem}  volume={false} order={order}
+                                    <MenuList menuItem={menuItem} volume={false} order={order}
                                               setOrder={setOrder}/>
                                 )
                                 }
@@ -231,7 +244,7 @@ const TablePage = () => {
                                     </Typography>
                                 </Grid>
                                 {menu.filter(item => item.data.category === 'drinks').map((menuItem, index) =>
-                                    <MenuList menuItem={menuItem}  volume={true} order={order}
+                                    <MenuList menuItem={menuItem} volume={true} order={order}
                                               setOrder={setOrder}/>
                                 )
                                 }
@@ -245,7 +258,7 @@ const TablePage = () => {
                                     </Typography>
                                 </Grid>
                                 {menu.filter(item => item.data.category === 'sides').map((menuItem, index) =>
-                                    <MenuList menuItem={menuItem}  volume={false} order={order}
+                                    <MenuList menuItem={menuItem} volume={false} order={order}
                                               setOrder={setOrder}/>
                                 )
                                 }
@@ -259,7 +272,7 @@ const TablePage = () => {
                                     </Typography>
                                 </Grid>
                                 {menu.filter(item => item.data.category === 'alcohol').map((menuItem, index) =>
-                                    <MenuList menuItem={menuItem}  volume={true} order={order}
+                                    <MenuList menuItem={menuItem} volume={true} order={order}
                                               setOrder={setOrder}/>
                                 )
                                 }

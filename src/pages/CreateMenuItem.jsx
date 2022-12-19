@@ -5,7 +5,7 @@ import {addDoc, collection} from "firebase/firestore";
 import {db} from "../utils/firebase-config";
 import TextInput from "../components/TextInput";
 import {Link} from "react-router-dom";
-import {IconPencil} from "@tabler/icons";
+import {IconListDetails, IconPencil} from "@tabler/icons";
 
 const CreateMenuItem = () => {
     const theme = useContext(ThemeContext)
@@ -43,7 +43,7 @@ const CreateMenuItem = () => {
 
     return (
         <Container maxWidth={'xl'}>
-            <Box display={'flex'} gap={3} pt={3}>
+            <Box display={'flex'} gap={3} pt={3} pb={3}>
                 <Link to={'/admin'} style={{width: 'fit-content', textDecoration: 'none', color: 'inherit'}}>
                     <Box boxShadow={10} sx={{
                         cursor: 'pointer',
@@ -55,12 +55,15 @@ const CreateMenuItem = () => {
                     }}
                          px={2} py={0.7}
                     >
+                        <IconListDetails/>
                         <Typography fontSize={20} pl={1} color={theme.backgroundColor}
                                     fontFamily={"'Carrois Gothic', sans-serif"} fontWeight={900}>
                             DASHBOARD
                         </Typography>
                     </Box>
                 </Link>
+            </Box>
+            <Box display={'flex'} gap={3} pt={3}>
                 <Link to={'/menuItems'} style={{width: 'fit-content', textDecoration: 'none', color: 'inherit'}}>
                     <Box boxShadow={10} sx={{
                         cursor: 'pointer',
@@ -100,7 +103,7 @@ const CreateMenuItem = () => {
             </Box>
             <Grid container>
                 <>
-                    <Box m={3} boxShadow={3} sx={{
+                    <Box m={{xs: 0, md: 3}} my={{xs: 3, md: 0}} boxShadow={3} sx={{
                         p: 3,
                         borderRadius: 1,
                         background: 'rgba(255, 255, 255, 0.60)',
@@ -116,16 +119,16 @@ const CreateMenuItem = () => {
                                 <Grid item xs={12} md={8}>
                                     <TextInput name={'Name'} id={'name'}/>
                                 </Grid>
-                                <Grid item xs={6} md={4}>
+                                <Grid item xs={8} md={4}>
                                     <TextInput name={'Weight/Volume'} id={'weight'}/>
                                 </Grid>
-                                <Grid item xs={6} md={4}>
+                                <Grid item xs={4} md={4}>
                                     <TextInput name={'Price'} id={'price'}/>
                                 </Grid>
-                                <Grid item xs={6} md={4}>
+                                <Grid item xs={12} md={4}>
                                     <TextInput name={'Allergens'} id={'allergens'}/>
                                 </Grid>
-                                <Grid item xs={6} md={4}>
+                                <Grid item xs={12} md={4}>
                                     <TextInput name={'Category'} id={'category'}/>
                                     <Typography variant={'caption'} pt={.5}>
                                         ('meal', 'drink', 'sides', 'alcohol', 'kids')
