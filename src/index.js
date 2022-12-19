@@ -13,8 +13,8 @@ import {createMuiTheme, ThemeProvider} from "@mui/material";
 const theme = createMuiTheme({
     typography: {
         fontFamily: [
-            '"Roboto Mono", monospace',
-            '"Rubik Mono One", sans-serif'
+            "'Inter', sans-serif",
+            "'Carrois Gothic', sans-serif"
         ].join(','),
     }
 });
@@ -26,12 +26,12 @@ root.render(
             <BrowserRouter>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <ThemeContext.Provider value={{
-                        primaryColor: '#ffffff',
-                        secondaryColor: '#750000',
-                        backgroundColor: '#1a1a1a',
-                        textColor: '#a98383',
+                        primaryColor: '#C4924E',
+                        secondaryColor: '#932012',
+                        backgroundColor: '#2F2F2F',
+                        textColor: '#0E0E0E',
                         elevationColor: '#75757C',
-                        secondaryFont: '"Rubik Mono One", sans-serif'
+                        secondaryFont: '"Inter", sans-serif'
                     }}>
                         <MainLayout>
                             <App/>
@@ -43,7 +43,4 @@ root.render(
     </ThemeProvider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

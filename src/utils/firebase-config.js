@@ -13,13 +13,13 @@ import {
 import 'firebase/storage';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA66MpELa8GetMc7u7QLLIKcPvgu1ekgac",
-    authDomain: "schooltattoo-f2f88.firebaseapp.com",
-    projectId: "schooltattoo-f2f88",
-    storageBucket: "schooltattoo-f2f88.appspot.com",
-    messagingSenderId: "1035054885570",
-    appId: "1:1035054885570:web:a12522bdcdf3fbfc60695b",
-    measurementId: "G-40EVBVCJJB"
+    apiKey: "AIzaSyDGeYaAjDf8AI_rp3ZIl4qqO0GrIlaQSYs",
+    authDomain: "orderwise-8213e.firebaseapp.com",
+    projectId: "orderwise-8213e",
+    storageBucket: "orderwise-8213e.appspot.com",
+    messagingSenderId: "355814784708",
+    appId: "1:355814784708:web:f2a37326591757694b5391",
+    measurementId: "G-L21K8ZEWBR"
 };
 
 const logInWithEmailAndPassword = async (email, password) => {

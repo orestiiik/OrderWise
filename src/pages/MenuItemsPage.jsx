@@ -4,24 +4,17 @@ import ThemeContext from "../context/ThemeContext";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {auth, db} from "../utils/firebase-config";
 import {Link} from "react-router-dom";
-import Orders from "../utils/Orders";
 import {deleteDoc, doc} from "firebase/firestore";
 import menuItems from "../utils/MenuItems";
-import {IconCheck, IconPencil, IconTrash} from "@tabler/icons";
+import {IconPencil, IconPlus, IconTrash} from "@tabler/icons";
 
-const AdminPage = () => {
+const MenuItemsPage = () => {
     const theme = useContext(ThemeContext)
     const [user, loading, error] = useAuthState(auth);
 
     const isAdmin = user?.email === 'admin@admin.com'
 
-    const orders = Orders()
-
     const menu = menuItems()
-
-    const getMenuItemById = ({menuRef}) => {
-        return menu.filter(item => item.id === menuRef)[0]?.data
-    }
 
     return (
         <Container maxWidth={'xl'} sx={{pt: 5}}>
@@ -35,7 +28,7 @@ const AdminPage = () => {
             </Typography>
             {isAdmin &&
                 <Box display={'flex'} gap={3}>
-                    <Link to={'/menuItems'} style={{width: 'fit-content', textDecoration: 'none', color: 'inherit'}}>
+                    <Link to={'/admin'} style={{width: 'fit-content', textDecoration: 'none', color: 'inherit'}}>
                         <Box boxShadow={10} sx={{
                             cursor: 'pointer',
                             border: `3px ${theme.backgroundColor} solid`,
@@ -46,10 +39,9 @@ const AdminPage = () => {
                         }}
                              px={2} py={0.7}
                         >
-                            <IconPencil/>
                             <Typography fontSize={20} pl={1} color={theme.backgroundColor}
                                         fontFamily={"'Carrois Gothic', sans-serif"} fontWeight={900}>
-                                MENU ITEMS
+                                DASHBOARD
                             </Typography>
                         </Box>
                     </Link>
@@ -80,59 +72,68 @@ const AdminPage = () => {
                             width: 'fit-content'
                         }}
             >
-                YOUR ORDERS
+                YOUR MENU ITEMS
             </Typography>
+            <Link to={'/newMenuItem'} style={{width: 'fit-content', textDecoration: 'none', color: 'inherit'}}>
+                <Box boxShadow={10} sx={{
+                    cursor: 'pointer',
+                    border: `3px ${theme.backgroundColor} solid`,
+                    background: theme.primaryColor,
+                    width: 'fit-content',
+                    display: 'flex',
+                    alignItems: 'center'
+                }}
+                     px={2} py={0.7}
+                >
+                    <IconPlus/>
+                    <Typography fontSize={20} pl={1} color={theme.backgroundColor}
+                                fontFamily={"'Carrois Gothic', sans-serif"} fontWeight={900}>
+                        CREATE MENU ITEM
+                    </Typography>
+                </Box>
+            </Link>
             <Grid container pb={3}>
-                {orders.reverse().map(order =>
+                {menu.map(item =>
                     <Grid item xs={12} md={4} p={2}>
-                        <Grid key={order.id} item boxShadow={5} height={'100%'} xs={12} borderRadius={1} p={3}>
+                        <Grid key={item.id} container item boxShadow={5} height={'100%'} xs={12} borderRadius={1} p={3}>
                             <Grid item xs={12} display={'flex'} justifyContent={'space-between'}>
-                                <Box sx={{
-                                    mt: 1,
-                                    borderRadius: '15px',
-                                    background: theme.backgroundColor,
-                                    border: '5px solid #c5934e',
-                                    boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.5)',
-                                    width: 45,
-                                    height: 45,
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center'
-                                }}>
-                                    <Typography px={2} fontSize={28} color={'white'} fontFamily={"'Inter', sans-serif"}>
-                                        {order.data.table}
-                                    </Typography>
-                                </Box>
-                                <Box display={'flex'} gap={2}>
-                                    <IconTrash
-                                        color={'red'}
-                                        style={{cursor: 'pointer'}}
-                                        onClick={async () => await deleteDoc(doc(db, "orders", order.id))}
-                                    />
-                                    <IconCheck
-                                        color={'green'}
-                                        style={{cursor: 'pointer'}}
-                                        onClick={async () => await deleteDoc(doc(db, "orders", order.id))}
-                                    />
-                                </Box>
+                                <Typography fontSize={18} color={theme.secondaryColor}>
+                                    {item.data.name}
+                                </Typography>
+                                <IconTrash
+                                    color={'red'}
+                                    style={{cursor: 'pointer'}}
+                                    onClick={async () => await deleteDoc(doc(db, "menu", item.id))}
+                                />
                             </Grid>
                             <Grid item xs={12} py={1.5}>
                                 <Divider/>
                             </Grid>
-                            <Grid item xs={12}>
-                                {order.data.order.map(item => {
-                                    const menuItem = getMenuItemById({menuRef: item.menuId})
-                                    return (
-                                        <Box display={'flex'} justifyContent={'space-between'}>
-                                            <Typography fontSize={23}>
-                                                {menuItem.name}
-                                            </Typography>
-                                            <Typography fontSize={18}>
-                                                {item.quantity} ks
-                                            </Typography>
-                                        </Box>
-                                    )
-                                })}
+                            <Grid item xs={6}>
+                                Price
+                            </Grid>
+                            <Grid item xs={6} fontWeight={600}>
+                                {item.data.price} kr
+                            </Grid>
+                            <Grid item xs={6}>
+                                Weight/Volume
+                            </Grid>
+                            <Grid item xs={6} fontWeight={600}>
+                                {item.data.weight}{(item.data.category === 'drinks' || item.data.category === 'alcohol') ? 'l' : 'g' }
+                            </Grid>
+                            <Grid item xs={6}>
+                                Allergens
+                            </Grid>
+                            <Grid item xs={6} fontWeight={600}>
+                                {item.data.allergens.map((alergen, index) =>
+                                    item.data.allergens.length !== index + 1 ? alergen + ',' : alergen
+                                )}
+                            </Grid>
+                            <Grid item xs={6}>
+                                Category
+                            </Grid>
+                            <Grid item xs={6} fontWeight={600}>
+                                {item.data.category}
                             </Grid>
                         </Grid>
                     </Grid>
@@ -142,4 +143,4 @@ const AdminPage = () => {
     )
 }
 
-export default AdminPage
+export default MenuItemsPage

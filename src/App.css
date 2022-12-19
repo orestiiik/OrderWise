@@ -37,14 +37,16 @@
   }
 }
 
-@import url("https://fonts.googleapis.com/css?family=Rubik+Mono+One|Roboto+Mono:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap');
+
 :root {
   --color-primary: #18181A;
   --color-secondary: #75757C;
-  --color-dark: #750100;
+  --color-dark: #C4924E;
   --color-light: #F5F5F5;
-  --font-family-primary: "Roboto Mono", monospace;
-  --font-family-secondary: "Rubik Mono One", sans-serif;
+  --font-family-primary: 'Inter', sans-serif;
+  --font-family-secondary: 'Carrois Gothic', sans-serif;
   --td: 150ms;
   --te: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
@@ -134,6 +136,7 @@
   width: 2rem;
 }
 [id=main-navigation-toggle] ~ label span::before, [id=main-navigation-toggle] ~ label span::after {
+  box-shadow: 2px 1px black;
   background-color: var(--color-dark);
   bottom: 0;
   content: "";

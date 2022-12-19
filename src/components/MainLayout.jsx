@@ -13,7 +13,7 @@ const MainLayout = ({children}) => {
 
     return (
         <>
-            <Box sx={{borderBottom: `2px ${theme.secondaryColor} solid`}} boxShadow={3}>
+            <Box sx={{borderBottom: `3px ${theme.primaryColor} solid`, background: theme.backgroundColor}} boxShadow={3}>
                 <Container maxWidth={'xl'}>
                     <Box className={'burgerMenu'}>
                         <input type="checkbox" id="main-navigation-toggle" checked={checkbox}
@@ -66,19 +66,19 @@ const MainLayout = ({children}) => {
                         </nav>
                     </Box>
                     <Link to={'/'} style={{textDecoration: 'none', color: 'inherit'}}>
-
-                        <Box display={'flex'} alignItems={'center'}>
-                            <Box height={50} width={50} py={2}>
+                        <Box display={'flex'} alignItems={'flex-start'}>
+                            <Box height={65} width={65} py={1}>
                                 <img alt={'Logo'} src={'/images/logo.png'} height={'100%'} width={'100%'}
                                      style={{objectFit: 'contain'}}/>
                             </Box>
-                            <Typography fontWeight={200} fontSize={26} ml={2} mt={1} fontFamily={theme.secondaryFont}
+                            <Typography fontWeight={600} fontSize={26} ml={2} mt={1}
+                                        color={'white'}
+                                        fontFamily={"'Inter', sans-serif"}
                                         sx={{
-                                            borderBottom: `16px ${theme.elevationColor} solid`, lineHeight: 0,
                                             width: 'fit-content'
                                         }}
                             >
-                                TattooSes
+                                Order<span style={{color: theme.primaryColor}}>W</span>ise
                             </Typography>
                         </Box>
                     </Link>
@@ -91,23 +91,21 @@ const MainLayout = ({children}) => {
             }}>
                 {children}
             </Box>
-            <Box sx={{borderTop: `3px ${theme.primaryColor} solid`, background: theme.secondaryColor}} boxShadow={3}>
+            <Box sx={{borderTop: `4px ${theme.secondaryColor} solid`, background: theme.backgroundColor}} boxShadow={3}>
                 <Container maxWidth={'xl'}>
                     <Box display={'flex'} flexDirection={{xs: 'column', md: 'row'}} alignItems={'center'}
                          justifyContent={'space-between'}>
-                        <Box py={6}>
-                            <Typography fontWeight={200} fontSize={26} ml={2} color={theme.primaryColor}
-                                        fontFamily={theme.secondaryFont}
-                                        sx={{
-                                            borderBottom: `16px ${theme.elevationColor} solid`, lineHeight: 0,
-                                            width: 'fit-content'
-                                        }}
-                            >
-                                TattooSes
+                        <Box py={6} display={'flex'} flexDirection={'column'} alignItems={'center'}>
+                            <Box height={85} width={85} py={1}>
+                                <img alt={'Logo'} src={'/images/logo.png'} height={'100%'} width={'100%'}
+                                     style={{objectFit: 'contain'}}/>
+                            </Box>
+                            <Typography color={'white'}>
+                                Order <span style={{color: theme.primaryColor}}>w</span>ith ease
                             </Typography>
                         </Box>
-                        <Typography my={'auto'} color={theme.primaryColor}>
-                            &#169; All rights reserved. :)
+                        <Typography my={'auto'} color={'white'}>
+                            &#169; All rights reserved <a href={'https://tavernapodhradom.sk/'} style={{color: 'white'}}>Taverna pod hradom</a>
                         </Typography>
                     </Box>
                 </Container>
