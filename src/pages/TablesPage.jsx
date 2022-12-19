@@ -128,7 +128,7 @@ const TablesPage = () => {
                                         width: '100%',
                                         height: 'auto'
                                     }}
-                                    value={`https://order-wise-c3dhad3ev-orestiiik.vercel.app/table/${table.id}`}
+                                    value={`https://order-wise.vercel.app/table/${table.id}`}
                                 />
                             </Grid>
                         </Grid>
