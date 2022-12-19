@@ -70,7 +70,7 @@ const CreateTable = () => {
                         <IconPencil/>
                         <Typography fontSize={20} pl={1} color={theme.backgroundColor}
                                     fontFamily={"'Carrois Gothic', sans-serif"} fontWeight={900}>
-                            MENU ITEMS
+                            MENU
                         </Typography>
                     </Box>
                 </Link>
