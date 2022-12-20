@@ -119,12 +119,6 @@ const TablePage = () => {
     async function handleSubmit(e) {
         setLoading((current) => !current);
         e.preventDefault();
-        console.log(Object.keys(order).map(item => {
-            return {
-                quantity: order[item].quantity,
-                menuId: `menu/${order[item].id}`
-            }
-        }))
         addDoc(collection(db, "orders"), {
             order:
                 Object.keys(order).map(item => {
@@ -215,7 +209,7 @@ const TablePage = () => {
                                         Meals
                                     </Typography>
                                 </Grid>
-                                {menu.filter(item => item.data.category === 'meal').map((menuItem, index) =>
+                                {menu.filter(item => item.data.category === 'meal').map((menuItem) =>
                                     <MenuList menuItem={menuItem} volume={false} order={order}
                                               setOrder={setOrder}/>
                                 )
@@ -229,7 +223,7 @@ const TablePage = () => {
                                         Kids
                                     </Typography>
                                 </Grid>
-                                {menu.filter(item => item.data.category === 'kids').map((menuItem, index) =>
+                                {menu.filter(item => item.data.category === 'kids').map((menuItem) =>
                                     <MenuList menuItem={menuItem} volume={false} order={order}
                                               setOrder={setOrder}/>
                                 )
@@ -243,7 +237,7 @@ const TablePage = () => {
                                         Drinks
                                     </Typography>
                                 </Grid>
-                                {menu.filter(item => item.data.category === 'drinks').map((menuItem, index) =>
+                                {menu.filter(item => item.data.category === 'drinks').map((menuItem) =>
                                     <MenuList menuItem={menuItem} volume={true} order={order}
                                               setOrder={setOrder}/>
                                 )
@@ -257,7 +251,7 @@ const TablePage = () => {
                                         Sides
                                     </Typography>
                                 </Grid>
-                                {menu.filter(item => item.data.category === 'sides').map((menuItem, index) =>
+                                {menu.filter(item => item.data.category === 'sides').map((menuItem) =>
                                     <MenuList menuItem={menuItem} volume={false} order={order}
                                               setOrder={setOrder}/>
                                 )
@@ -271,7 +265,7 @@ const TablePage = () => {
                                         Alcohol
                                     </Typography>
                                 </Grid>
-                                {menu.filter(item => item.data.category === 'alcohol').map((menuItem, index) =>
+                                {menu.filter(item => item.data.category === 'alcohol').map((menuItem) =>
                                     <MenuList menuItem={menuItem} volume={true} order={order}
                                               setOrder={setOrder}/>
                                 )

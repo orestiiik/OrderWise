@@ -112,7 +112,7 @@ const CreateMenuItem = () => {
                     }}>
                         <Typography pt={2} variant={'h4'} color={theme.secondaryColor}
                                     fontFamily={theme.secondaryFont}>
-                            Create new studio
+                            Create new menu item
                         </Typography>
                         <form onSubmit={handleSubmit} method="POST">
                             <Grid container spacing={3} pb={2}>
